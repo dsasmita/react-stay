@@ -1,26 +1,60 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./App.css";
+import room from "./room.jpg";
+
+import Header from "./components/Header.js";
+import RoomList from "./components/RoomList.js";
+
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      filterText: ""
+    };
+  }
+  handleFilterText = filterText => {
+    this.setState({
+      filterText: filterText
+    });
+  };
+  render() {
+    return (
+      <div className="App">
+        <Header
+          filterText={this.state.filterText}
+          handleFilterText={this.handleFilterText}
+        />
+        <RoomList rooms={ROOMS} filterText={this.state.filterText} />
+      </div>
+    );
+  }
 }
 
+const ROOMS = [
+  {
+    name: "Beautiful Room",
+    thumbnail: room
+  },
+  {
+    name: "Clean Room",
+    thumbnail: room
+  },
+  {
+    name: "Snappy Room",
+    thumbnail: room
+  },
+  {
+    name: "Big Room",
+    thumbnail: room
+  },
+  {
+    name: "Minimalist Room",
+    thumbnail: room
+  },
+  {
+    name: "Huge Room",
+    thumbnail: room
+  }
+];
 export default App;
