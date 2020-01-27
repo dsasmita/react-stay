@@ -13,7 +13,7 @@ class RoomList extends React.Component {
     return (
       <div className="RoomContainer">
         {filteredRooms.map(room => (
-          <RoomDetail key={room.name} room={room} />
+          <RoomDetail key={room.id} room={room} />
         ))}
       </div>
     );
