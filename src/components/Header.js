@@ -1,31 +1,26 @@
-import React from "react";
 /** @jsx jsx */
 import { Global, jsx, css } from "@emotion/core";
 
 import SearchBar from "./SearchBar.js";
 
-class Header extends React.Component {
-  render() {
-    return (
-      <header css={styles.header}>
-        <nav>
-          <ul css={styles.ul}>
-            <Global styles={styles.li} />
-            <li css={styles.title} id="title">
-              Stay App
-            </li>
-            <li css={styles.search}>
-              <SearchBar
-                filterText={this.props.filterText}
-                handleFilterText={this.props.handleFilterText}
-              />
-            </li>
-          </ul>
-        </nav>
-      </header>
-    );
-  }
-}
+const Header = props => (
+  <header css={styles.header}>
+    <nav>
+      <ul css={styles.ul}>
+        <Global styles={styles.li} />
+        <li css={styles.title} id="title">
+          Stay App
+        </li>
+        <li css={styles.search}>
+          <SearchBar
+            filterText={props.filterText}
+            handleFilterText={props.handleFilterText}
+          />
+        </li>
+      </ul>
+    </nav>
+  </header>
+);
 
 const styles = {
   header: css`

@@ -14,7 +14,7 @@ class SearchBar extends React.Component {
           onChange={this.handleFilterText}
           value={filterText}
         />{" "}
-        <button>Find</button>
+        <button type="button">Find</button>
       </form>
     );
   }

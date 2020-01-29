@@ -1,26 +1,24 @@
-import React from "react";
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core";
 import { Link } from "@reach/router";
 
-class RoomThumbnail extends React.Component {
-  render() {
-    const { room } = this.props;
-    return (
-      <div className="ProductList">
-        <div>
-          <img className="ProductImage" alt="room-1" src={room.thumbnail} />
-        </div>
-        <div css={styles.container}>
-          <h1 css={styles.title}>{room.name}</h1>
-          <Link to={"room/" + room.id} css={styles.link} className="ProducLink">
-            View Detail >>
-          </Link>
-        </div>
-      </div>
-    );
-  }
-}
+const RoomThumbnail = props => (
+  <div className="ProductList">
+    <div>
+      <img className="ProductImage" alt="room-1" src={props.room.thumbnail} />
+    </div>
+    <div css={styles.container}>
+      <h1 css={styles.title}>{props.room.name}</h1>
+      <Link
+        to={"room/" + props.room.id}
+        css={styles.link}
+        className="ProducLink"
+      >
+        View Detail >>
+      </Link>
+    </div>
+  </div>
+);
 
 const styles = {
   container: css`
